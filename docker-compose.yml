@@ -1,0 +1,12 @@
+version: '3'
+services:
+  plex:
+    image: plexinc/pms-docker
+    network_mode: host
+    environment:
+      TZ: 'America/Los_Angeles'
+      PLEX_CLAIM: ${PLEX_CLAIM}
+    volumes:
+      - ${PLEX_DIR}/plex/config:/config
+      - ${PLEX_DIR}/plex/transcode:/transcode
+      - ${PLEX_DIR}/plex/media:/data
