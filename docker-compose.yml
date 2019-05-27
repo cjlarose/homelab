@@ -10,3 +10,29 @@ services:
       - ${PLEX_DIR}/config:/config
       - ${PLEX_DIR}/transcode:/transcode
       - ${PLEX_DIR}/media:/data
+  transmission:
+    image: haugene/transmission-openvpn
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    restart: always
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${TRANSMISSION_DIR}:/data
+    environment:
+      OPENVPN_PROVIDER: ${OPENVPN_PROVIDER}
+      OPENVPN_CONFIG: ${OPENVPN_CONFIG}
+      OPENVPN_USERNAME: ${OPENVPN_USERNAME}
+      OPENVPN_PASSWORD: ${OPENVPN_PASSWORD}
+      WEBPROXY_ENABLED: 'false'
+      LOCAL_NETWORK: 192.168.0.0/16
+  transmission_proxy:
+    image: haugene/transmission-openvpn-proxy
+    links:
+      - transmission
+    ports:
+      - 8080:8080
