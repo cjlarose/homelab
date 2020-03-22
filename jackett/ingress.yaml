@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: jackett-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - host: jackett.192.168.50.143.nip.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: jackett-service
+          servicePort: 80
