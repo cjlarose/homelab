@@ -27,9 +27,9 @@ spec:
         - name: TZ
           value: "America/Los_Angeles"
         - name: PUID
-          value: 1005
+          value: "1005"
         - name: PGID
-          value: 1007
+          value: "1007"
         volumeMounts:
           - name: jacket-config
             mountPath: "/config"
