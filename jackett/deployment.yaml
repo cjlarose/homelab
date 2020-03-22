@@ -1,0 +1,44 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jackett
+  namespace: media
+  labels:
+    app: jackett
+spec:
+  selector:
+    matchLabels:
+      app: jackett
+  template:
+    metadata:
+      labels:
+        app: jackett
+    spec:
+      containers:
+      - name: jackett
+        image: linuxserver/jackett:v0.14.164-ls58
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http
+          containerPort: 9117
+          protocol: TCP
+        env:
+        - name: TZ
+          value: "America/Los_Angeles"
+        - name: PUID
+          value: 1005
+        - name: PGID
+          value: 1007
+        volumeMounts:
+          - name: jacket-config
+            mountPath: "/config"
+          - name: jacket-downloads
+            mountPath: "/downloads"
+      volumes:
+        - name: jackett-config
+          persistentVolumeClaim:
+            claimName: pvc-nfs-client-provisioner-jackett-config
+        - name: jackett-downloads
+          persistentVolumeClaim:
+            claimName: pvc-nfs-client-provisioner-jackett-downloads
