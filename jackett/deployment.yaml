@@ -31,9 +31,9 @@ spec:
         - name: PGID
           value: "1007"
         volumeMounts:
-          - name: jacket-config
+          - name: jackett-config
             mountPath: "/config"
-          - name: jacket-downloads
+          - name: jackett-downloads
             mountPath: "/downloads"
       volumes:
         - name: jackett-config
