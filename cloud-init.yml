@@ -1,0 +1,8 @@
+write_files:
+- content: |
+    k3os:
+      k3s_args:
+      - "server"
+      - "--no-deploy"
+      - "traefik"
+  path: /var/lib/rancher/k3os/config.yaml
