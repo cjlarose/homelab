@@ -11,7 +11,10 @@ spec:
       - "/bin/sh"
     args:
       - "-c"
-      - "tail -f /dev/null"
+      - >
+        addgroup -g 1000 plex &&
+        adduser -D -G plex -u 1000 plex &&
+        su -c 'touch /mnt/SUCCESS && exit 0 || exit 1' - plex
     volumeMounts:
       - name: nfs-pvc
         mountPath: "/mnt"
