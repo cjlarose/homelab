@@ -11,7 +11,7 @@ spec:
   releaseName: nginx-ingress-media
   chart:
     repository: https://kubernetes-charts.storage.googleapis.com/
-    name: nfs-client-provisioner
+    name: nginx-ingress
     version: 1.34.2
   values:
     nfs:
