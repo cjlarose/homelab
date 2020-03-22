@@ -1,5 +1,7 @@
 write_files:
 - content: |
+    ssh_authorized_keys:
+    - github:cjlarose
     k3os:
       k3s_args:
       - "server"
