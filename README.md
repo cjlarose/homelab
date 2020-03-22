@@ -12,6 +12,12 @@ Create a new VM running [`k3os`][k3os]. Install it `sudo k3os install`, copy the
 
 [k3os]: https://github.com/rancher/k3os
 
+When the VM boots up again, disable traefik
+
+```sh
+sudo k3s kubectl delete -n kube-system helmcharts traefik
+```
+
 Install `flux` and `helm-operator` onto the k3s cluster.
 
 ```sh
