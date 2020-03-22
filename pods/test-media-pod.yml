@@ -2,7 +2,7 @@ kind: Pod
 apiVersion: v1
 metadata:
   name: test-pvc-pod
-  namespace: demo
+  namespace: media
 spec:
   containers:
   - name: test-pvc-pod

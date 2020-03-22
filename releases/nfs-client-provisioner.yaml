@@ -3,7 +3,7 @@ apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
   name: nfs-client-provisioner-media
-  namespace: demo
+  namespace: media
   annotations:
     fluxcd.io/automated: "true"
     fluxcd.io/tag.chart-image: semver:~1.0
