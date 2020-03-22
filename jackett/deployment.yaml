@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: jackett
-        image: linuxserver/jackett:v0.14.164-ls58
+        image: linuxserver/jackett:arm32v7-development
         imagePullPolicy: IfNotPresent
         ports:
         - name: http
@@ -39,14 +39,14 @@ spec:
               name: users-and-groups
               key: gid.jackett
         volumeMounts:
-          - name: jackett-config
-            mountPath: "/config"
-          - name: jackett-downloads
-            mountPath: "/downloads"
-      volumes:
         - name: jackett-config
-          persistentVolumeClaim:
-            claimName: pvc-nfs-client-provisioner-jackett-config
+          mountPath: "/config"
         - name: jackett-downloads
-          persistentVolumeClaim:
-            claimName: pvc-nfs-client-provisioner-jackett-downloads
+          mountPath: "/downloads"
+      volumes:
+      - name: jackett-config
+        persistentVolumeClaim:
+          claimName: pvc-nfs-client-provisioner-jackett-config
+      - name: jackett-downloads
+        persistentVolumeClaim:
+          claimName: pvc-nfs-client-provisioner-jackett-downloads
