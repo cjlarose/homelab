@@ -22,6 +22,8 @@ The VM will install `k3os` to disk and restart.
 
 I'm using [UEFI "Default Boot Behavior"][uefi-fix] in byhve to boot the VM, so I'll fix the boot partition now.
 
+[uefi-fix]: https://www.ixsystems.com/community/threads/howto-how-to-boot-linux-vms-using-uefi.54039/
+
 ```sh
 sudo su -
 mkdir /mnt
