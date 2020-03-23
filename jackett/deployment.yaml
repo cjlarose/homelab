@@ -6,6 +6,8 @@ metadata:
   namespace: media
   labels:
     app: jackett
+  annotations:
+    fluxcd.io/automated: "true"
 spec:
   selector:
     matchLabels:
