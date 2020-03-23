@@ -18,5 +18,7 @@ spec:
     nfs:
       server: 192.168.50.141
       path: /mnt/storage/radarr
+      mountOptions:
+        - "nolock"
     storageClass:
       name: "nfs-radarr-config"
