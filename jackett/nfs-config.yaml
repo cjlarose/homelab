@@ -18,6 +18,7 @@ spec:
       server: 192.168.50.141
       path: /mnt/storage/jackett/config
       mountOptions:
+        - "nfsvers=3"
         - "nolock"
     storageClass:
       name: "nfs-jackett-config"
