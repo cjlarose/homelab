@@ -1,0 +1,61 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: radarr
+  namespace: media
+  labels:
+    app: radarr
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.radarr: "glob:amd64-3.*"
+spec:
+  selector:
+    matchLabels:
+      app: radarr
+  template:
+    metadata:
+      labels:
+        app: radarr
+    spec:
+      containers:
+      - name: radarr
+        image: linuxserver/radarr:amd64-3.0.0.2730-ls1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http
+          containerPort: 7878
+          protocol: TCP
+        env:
+        - name: TZ
+          valueFrom:
+            configMapKeyRef:
+              name: system-preferences
+              key: time-zone
+        - name: PUID
+          valueFrom:
+            configMapKeyRef:
+              name: users-and-groups
+              key: uid.radarr
+        - name: PGID
+          valueFrom:
+            configMapKeyRef:
+              name: users-and-groups
+              key: gid.plexlibrary
+        volumeMounts:
+        - name: radarr-config
+          mountPath: "/config"
+        - name: transmission-downloads
+          mountPath: "/data/completed"
+        - name: movies
+          mountPath: "/movies"
+      volumes:
+      - name: radarr-config
+        persistentVolumeClaim:
+          claimName: pvc-nfs-client-provisioner-radarr-config
+      - name: transmission-downloads
+        persistentVolumeClaim:
+          claimName: pvc-nfs-client-provisioner-transmission-downloads
+      - name: movies
+        persistentVolumeClaim:
+          claimName: pvc-nfs-client-provisioner-movies
