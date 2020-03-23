@@ -13,6 +13,7 @@ spec:
     repository: https://kubernetes-charts.storage.googleapis.com/
     name: nfs-client-provisioner
     version: 1.2.8
+  forceUpgrade: true
   values:
     nfs:
       server: 192.168.50.141
