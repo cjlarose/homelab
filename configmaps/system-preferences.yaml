@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: system-preferences
+  namespace: media
+data:
+  time-zone: "America/Los_Angeles"

@@ -28,7 +28,10 @@ spec:
           protocol: TCP
         env:
         - name: TZ
-          value: "America/Los_Angeles"
+          valueFrom:
+            configMapKeyRef:
+              name: system-preferences
+              key: time-zone
         - name: PUID
           valueFrom:
             configMapKeyRef:
