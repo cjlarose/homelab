@@ -18,9 +18,6 @@ spec:
       labels:
         app: radarr
     spec:
-      securityContext:
-        runAsUser: 1004
-        fsGroup: 1005
       containers:
       - name: radarr
         image: linuxserver/radarr:amd64-3.0.0.2736-ls1
