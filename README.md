@@ -15,7 +15,7 @@ Create a new VM from the [`k3os`][k3os] installation ISO.
 Log in as the `rancher` user and execute `sudo k3os install`. Select "Install to disk". Select "Config with cloud-init file". Use the path
 
 ```
-https://raw.githubusercontent.com/cjlarose/media-server/master/cloud-init.yml
+https://raw.githubusercontent.com/cjlarose/media-server/master/cloud-init.yaml
 ```
 
 The VM will install `k3os` to disk and restart.
