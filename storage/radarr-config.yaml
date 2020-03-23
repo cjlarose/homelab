@@ -1,0 +1,25 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: nfs-client-provisioner-radarr-config
+  namespace: media
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.chart-image: semver:~1.0
+spec:
+  releaseName: nfs-client-provisioner-radarr-config
+  chart:
+    repository: https://kubernetes-charts.storage.googleapis.com/
+    name: nfs-client-provisioner
+    version: 1.2.8
+  forceUpgrade: true
+  values:
+    nfs:
+      server: 192.168.50.141
+      path: /mnt/storage/radarr
+      mountOptions:
+        - "nfsvers=3"
+        - "nolock"
+    storageClass:
+      name: "nfs-radarr-config"
