@@ -4,5 +4,7 @@ metadata:
   name: users-and-groups
   namespace: media
 data:
-  uid.jackett: "1005"
   gid.jackett: "1007"
+  gid.plexlibrary: "1005"
+  uid.jackett: "1005"
+  uid.radarr: "1004"
