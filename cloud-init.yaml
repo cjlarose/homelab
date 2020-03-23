@@ -3,6 +3,9 @@ write_files:
     ssh_authorized_keys:
     - github:cjlarose
     k3os:
+      ntp_servers:
+      - 0.us.pool.ntp.org
+      - 1.us.pool.ntp.org
       k3s_args:
       - "server"
       - "--no-deploy"
