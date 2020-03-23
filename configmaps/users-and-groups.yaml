@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: users-and-groups
+  namespace: media
+data:
+  uid.jackett: "1005"
+  gid.jackett: "1007"

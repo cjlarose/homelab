@@ -27,9 +27,15 @@ spec:
         - name: TZ
           value: "America/Los_Angeles"
         - name: PUID
-          value: "1005"
+          valueFrom:
+            configMapKeyRef:
+              name: users-and-groups
+              key: uid.jackett
         - name: PGID
-          value: "1007"
+          valueFrom:
+            configMapKeyRef:
+              name: users-and-groups
+              key: gid.jackett
         volumeMounts:
           - name: jackett-config
             mountPath: "/config"
