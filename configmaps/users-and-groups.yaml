@@ -8,3 +8,4 @@ data:
   gid.plexlibrary: "1005"
   uid.jackett: "1005"
   uid.radarr: "1004"
+  uid.sonarr: "1006"
