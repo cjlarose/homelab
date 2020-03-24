@@ -19,7 +19,6 @@ spec:
       server: 192.168.50.141
       path: /mnt/storage/media/movies
       mountOptions:
-        - "nfsvers=3"
-        - "nolock"
+        - "nfsvers=4"
     storageClass:
       name: "nfs-movies"
