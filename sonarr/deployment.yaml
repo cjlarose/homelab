@@ -6,6 +6,9 @@ metadata:
   namespace: media
   labels:
     app: sonarr
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.sonarr: "glob:amd64-2.*"
 spec:
   selector:
     matchLabels:
