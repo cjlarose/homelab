@@ -20,5 +20,6 @@ spec:
       path: /mnt/storage/radarr
       mountOptions:
         - "nfsvers=4"
+        - "nolock"
     storageClass:
       name: "nfs-radarr-config"
