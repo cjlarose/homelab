@@ -1,0 +1,58 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sonarr
+  namespace: media
+  labels:
+    app: sonarr
+spec:
+  selector:
+    matchLabels:
+      app: sonarr
+  template:
+    metadata:
+      labels:
+        app: sonarr
+    spec:
+      containers:
+      - name: sonarr
+        image: linuxserver/sonarr:amd64-2.0.0.5344-ls55
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http
+          containerPort: 8989
+          protocol: TCP
+        env:
+        - name: TZ
+          valueFrom:
+            configMapKeyRef:
+              name: system-preferences
+              key: time-zone
+        - name: PUID
+          valueFrom:
+            configMapKeyRef:
+              name: users-and-groups
+              key: uid.sonarr
+        - name: PGID
+          valueFrom:
+            configMapKeyRef:
+              name: users-and-groups
+              key: gid.plexlibrary
+        volumeMounts:
+        - name: sonarr-config
+          mountPath: "/config"
+        - name: transmission-downloads
+          mountPath: "/data/completed"
+        - name: tv-shows
+          mountPath: "/tv"
+      volumes:
+      - name: sonarr-config
+        persistentVolumeClaim:
+          claimName: pvc-nfs-client-provisioner-sonarr-config
+      - name: transmission-downloads
+        persistentVolumeClaim:
+          claimName: pvc-nfs-client-provisioner-transmission-downloads
+      - name: tv-shows
+        persistentVolumeClaim:
+          claimName: pvc-nfs-client-provisioner-tv-shows
