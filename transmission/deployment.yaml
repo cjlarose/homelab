@@ -1,0 +1,77 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: transmission
+  namespace: media
+  labels:
+    app: transmission
+spec:
+  selector:
+    matchLabels:
+      app: transmission
+  template:
+    metadata:
+      labels:
+        app: transmission
+    spec:
+      containers:
+      - name: transmission
+        image: haugene/transmission-openvpn:2.7
+        imagePullPolicy: IfNotPresent
+        securityContext:
+          capabilities:
+            add: ["NET_ADMIN"]
+        ports:
+        - name: http
+          containerPort: 9091
+          protocol: TCP
+        env:
+        - name: PUID
+          valueFrom:
+            configMapKeyRef:
+              name: users-and-groups
+              key: uid.transmission
+        - name: PGID
+          valueFrom:
+            configMapKeyRef:
+              name: users-and-groups
+              key: gid.torrents
+        - name: LOCAL_NETWORK  
+          value: "192.168.50.0/24"
+        - name: CREATE_TUN_DEVICE  
+          value: "true"
+        - name: OPENVPN_PROVIDER  
+          value: "PIA"
+        - name: OPENVPN_CONFIG  
+          value: "CA Vancouver"
+        - name: OPENVPN_PASSWORD 
+          valueFrom:
+            secretKeyRef:
+              name: pia-credentials
+              key: username
+        - name: OPENVPN_USERNAME 
+          valueFrom:
+            secretKeyRef:
+              name: pia-credentials
+              key: password
+        - name: OPENVPN_OPTS  
+          value: "--inactive 3600 --ping 10 --ping-exit 60"
+        - name: TRANSMISSION_DOWNLOAD_QUEUE_SIZE  
+          value: "100"
+        - name: TRANSMISSION_WEB_UI  
+          value: "combustion"
+        - name: WEBPROXY_ENABLED  
+          value: "false"
+        volumeMounts:
+        - name: transmission-root
+          mountPath: "/data"
+      dnsPolicy: "None"
+      dnsConfig:
+        nameservers:
+          - 8.8.4.4
+          - 8.8.8.8
+      volumes:
+      - name: transmission-root
+        persistentVolumeClaim:
+          claimName: pvc-nfs-client-provisioner-transmission-root
