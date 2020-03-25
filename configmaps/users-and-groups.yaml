@@ -6,6 +6,8 @@ metadata:
 data:
   gid.jackett: "1007"
   gid.plexlibrary: "1005"
+  gid.torrents: "1004"
   uid.jackett: "1005"
   uid.radarr: "1004"
   uid.sonarr: "1006"
+  uid.transmission: "1003"
