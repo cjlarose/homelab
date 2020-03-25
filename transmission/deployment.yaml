@@ -66,6 +66,10 @@ spec:
         volumeMounts:
         - name: transmission-root
           mountPath: "/data"
+      dnsConfig:
+        nameservers:
+          - 8.8.4.4
+          - 8.8.8.8
       volumes:
       - name: transmission-root
         persistentVolumeClaim:
