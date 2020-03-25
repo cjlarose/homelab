@@ -37,31 +37,31 @@ spec:
             configMapKeyRef:
               name: users-and-groups
               key: gid.torrents
-        - name: LOCAL_NETWORK  
+        - name: LOCAL_NETWORK
           value: "192.168.50.0/24"
-        - name: CREATE_TUN_DEVICE  
+        - name: CREATE_TUN_DEVICE
           value: "true"
-        - name: OPENVPN_PROVIDER  
+        - name: OPENVPN_PROVIDER
           value: "PIA"
-        - name: OPENVPN_CONFIG  
+        - name: OPENVPN_CONFIG
           value: "CA Vancouver"
-        - name: OPENVPN_PASSWORD 
+        - name: OPENVPN_PASSWORD
           valueFrom:
             secretKeyRef:
               name: pia-credentials
               key: username
-        - name: OPENVPN_USERNAME 
+        - name: OPENVPN_USERNAME
           valueFrom:
             secretKeyRef:
               name: pia-credentials
               key: password
-        - name: OPENVPN_OPTS  
+        - name: OPENVPN_OPTS
           value: "--inactive 3600 --ping 10 --ping-exit 60"
-        - name: TRANSMISSION_DOWNLOAD_QUEUE_SIZE  
+        - name: TRANSMISSION_DOWNLOAD_QUEUE_SIZE
           value: "100"
-        - name: TRANSMISSION_WEB_UI  
+        - name: TRANSMISSION_WEB_UI
           value: "combustion"
-        - name: WEBPROXY_ENABLED  
+        - name: WEBPROXY_ENABLED
           value: "false"
         volumeMounts:
         - name: transmission-root
