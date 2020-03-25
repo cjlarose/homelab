@@ -45,12 +45,12 @@ spec:
           value: "PIA"
         - name: OPENVPN_CONFIG
           value: "CA Vancouver"
-        - name: OPENVPN_PASSWORD
+        - name: OPENVPN_USERNAME
           valueFrom:
             secretKeyRef:
               name: pia-credentials
               key: username
-        - name: OPENVPN_USERNAME
+        - name: OPENVPN_PASSWORD
           valueFrom:
             secretKeyRef:
               name: pia-credentials
