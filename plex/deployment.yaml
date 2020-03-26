@@ -39,6 +39,8 @@ spec:
             configMapKeyRef:
               name: users-and-groups
               key: gid.plex
+        - name: CHANGE_CONFIG_DIR_OWNERSHIP
+          value: "false"
         volumeMounts:
         - name: plex-config
           mountPath: "/config"
