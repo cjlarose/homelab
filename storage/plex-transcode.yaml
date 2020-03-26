@@ -17,7 +17,7 @@ spec:
   values:
     nfs:
       server: 192.168.50.141
-      path: /mnt/storage/plex
+      path: /mnt/storage/plex/transcode
       mountOptions:
         - "nfsvers=4"
     storageClass:
