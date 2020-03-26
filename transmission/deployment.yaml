@@ -6,6 +6,9 @@ metadata:
   namespace: media
   labels:
     app: transmission
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.transmission: semver:~2
 spec:
   selector:
     matchLabels:
