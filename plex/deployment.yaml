@@ -6,6 +6,9 @@ metadata:
   namespace: media
   labels:
     app: plex
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.sonarr: "semver:~1"
 spec:
   selector:
     matchLabels:
