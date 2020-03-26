@@ -1,0 +1,58 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plex
+  namespace: media
+  labels:
+    app: plex
+spec:
+  selector:
+    matchLabels:
+      app: plex
+  template:
+    metadata:
+      labels:
+        app: plex
+    spec:
+      containers:
+      - name: plex
+        image: plexinc/pms-docker:1.18.8.2527-740d4c206
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http
+          containerPort: 32400
+          protocol: TCP
+        env:
+        - name: TZ
+          valueFrom:
+            configMapKeyRef:
+              name: system-preferences
+              key: time-zone
+        - name: PLEX_UID
+          valueFrom:
+            configMapKeyRef:
+              name: users-and-groups
+              key: uid.plex
+        - name: PLEX_GID
+          valueFrom:
+            configMapKeyRef:
+              name: users-and-groups
+              key: gid.plex
+        volumeMounts:
+        - name: plex-config
+          mountPath: "/config"
+        - name: plex-transcode
+          mountPath: "/transcode"
+        - name: media
+          mountPath: "/data"
+      volumes:
+      - name: plex-config
+        persistentVolumeClaim:
+          claimName: pvc-nfs-client-provisioner-plex-config
+      - name: plex-transcode
+        persistentVolumeClaim:
+          claimName: pvc-nfs-client-provisioner-plex-transcode
+      - name: media
+        persistentVolumeClaim:
+          claimName: pvc-nfs-client-provisioner-media
