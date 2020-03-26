@@ -11,4 +11,4 @@ spec:
     protocol: TCP
     name: http
   selector:
-    run: plex
+    app: plex
