@@ -15,6 +15,7 @@ spec:
       labels:
         app: plex
     spec:
+      hostname: plex-k3os
       containers:
       - name: plex
         image: plexinc/pms-docker:1.18.8.2527-740d4c206
