@@ -7,7 +7,6 @@ metadata:
   labels:
     app: plex
   annotations:
-    fluxcd.io/ignore: "true"
     fluxcd.io/automated: "true"
     fluxcd.io/tag.sonarr: "semver:~1"
 spec:
