@@ -39,6 +39,11 @@ spec:
             configMapKeyRef:
               name: users-and-groups
               key: gid.plex
+        - name: PLEX_CLAIM
+          valueFrom:
+            secretKeyRef:
+              name: plex-credentials
+              key: claim
         - name: CHANGE_CONFIG_DIR_OWNERSHIP
           value: "false"
         volumeMounts:
