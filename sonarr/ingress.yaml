@@ -6,6 +6,9 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
 spec:
+  tls:
+  - hosts:
+    - sonarr.toothyshouse.com
   rules:
   - host: sonarr.toothyshouse.com
     http:

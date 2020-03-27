@@ -6,6 +6,9 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
 spec:
+  tls:
+  - hosts:
+    - transmission.toothyshouse.com
   rules:
   - host: transmission.toothyshouse.com
     http:
