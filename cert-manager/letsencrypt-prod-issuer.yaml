@@ -1,15 +1,15 @@
 apiVersion: cert-manager.io/v1alpha2
 kind: Issuer
 metadata:
-  name: letsencrypt-staging
+  name: letsencrypt-prod
   namespace: media
 spec:
   acme:
-    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    server: https://acme-v02.api.letsencrypt.org/directory
     email: cjlarose@gmail.com
 
     privateKeySecretRef:
-      name: acme-client-private-key-letsencrypt-staging
+      name: acme-client-private-key-letsencrypt-prod
 
     solvers:
     - selector: {}
