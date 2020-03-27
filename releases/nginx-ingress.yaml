@@ -17,3 +17,5 @@ spec:
     controller:
       service:
         type: "LoadBalancer"
+      extraArgs:
+      - --default-ssl-certificate=toothyshouse-com-tls
