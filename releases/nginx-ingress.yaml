@@ -18,4 +18,4 @@ spec:
       service:
         type: "LoadBalancer"
       extraArgs:
-      - --default-ssl-certificate=toothyshouse-com-tls
+        default-ssl-certificate: toothyshouse-com-tls
