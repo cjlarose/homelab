@@ -7,7 +7,7 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-  - host: transmission.192.168.50.143.nip.io
+  - host: transmission.toothyshouse.com
     http:
       paths:
       - path: /

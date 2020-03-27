@@ -7,7 +7,7 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-  - host: radarr.192.168.50.143.nip.io
+  - host: radarr.toothyshouse.com
     http:
       paths:
       - path: /

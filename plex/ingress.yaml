@@ -7,7 +7,7 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-  - host: plex.192.168.50.143.nip.io
+  - host: plex.toothyshouse.com
     http:
       paths:
       - path: /
