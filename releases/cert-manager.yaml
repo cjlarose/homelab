@@ -7,5 +7,5 @@ spec:
   releaseName: cert-manager
   chart:
     repository: https://charts.jetstack.io
-    name: jetstack/cert-manager
+    name: cert-manager
     version: 0.14.1
