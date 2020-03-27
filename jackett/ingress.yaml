@@ -6,6 +6,10 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
 spec:
+  tls:
+  - hosts:
+    - jackett.toothyshouse.com
+    secretName: toothyshouse-com-tls
   rules:
   - host: jackett.toothyshouse.com
     http:
