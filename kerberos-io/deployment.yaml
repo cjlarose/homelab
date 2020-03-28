@@ -23,7 +23,6 @@ spec:
         - name: web
           containerPort: 80
           protocol: TCP
-        ports:
         - name: livestream
           containerPort: 8889
           protocol: TCP
