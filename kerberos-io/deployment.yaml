@@ -26,3 +26,6 @@ spec:
         - name: livestream
           containerPort: 8889
           protocol: TCP
+        env:
+        - name: KERBEROSIO_SECURE_SSL
+          value: "true"
