@@ -8,9 +8,9 @@ metadata:
 spec:
   tls:
   - hosts:
-    - camera.toothyshouse.com
+    - livestream.toothyshouse.com
   rules:
-  - host: camera.toothyshouse.com
+  - host: livestream.toothyshouse.com
     http:
       paths:
       - path: /
