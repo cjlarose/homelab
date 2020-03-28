@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: kerberos-io-livestream-ingress
+  namespace: media
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  tls:
+  - hosts:
+    - camera.toothyshouse.com
+  rules:
+  - host: camera.toothyshouse.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: kerberos-io-livestream-service
+          servicePort: 8889
