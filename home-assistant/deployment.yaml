@@ -8,7 +8,7 @@ metadata:
     app: home-assistant
   annotations:
     fluxcd.io/automated: "true"
-    fluxcd.io/tag.sonarr: "semver:*"
+    fluxcd.io/tag.sonarr: 'regexp:^0\.\d+\.\d+$'
 spec:
   selector:
     matchLabels:
