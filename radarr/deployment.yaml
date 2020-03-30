@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: radarr
-        image: linuxserver/radarr:amd64-v0.2.0.1480-ls6
+        image: linuxserver/radarr:amd64-v0.2.0.1480-ls55
         imagePullPolicy: IfNotPresent
         ports:
         - name: http
