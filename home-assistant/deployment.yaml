@@ -6,6 +6,9 @@ metadata:
   namespace: media
   labels:
     app: home-assistant
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.sonarr: "semver:*"
 spec:
   selector:
     matchLabels:
