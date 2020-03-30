@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: home-assistant
-        image: homeassistant/home-assistant:0.108.0.dev20200329
+        image: homeassistant/home-assistant:0.108.0.dev20200330
         imagePullPolicy: IfNotPresent
         ports:
         - name: http
