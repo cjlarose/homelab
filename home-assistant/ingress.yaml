@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: home-assistant-ingress
+  namespace: media
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  tls:
+  - hosts:
+    - hass.toothyshouse.com
+  rules:
+  - host: hass.toothyshouse.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: home-assistant-service
+          servicePort: 80

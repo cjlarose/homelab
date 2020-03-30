@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: home-assistant-service
+  namespace: media
+spec:
+  ports:
+  - port: 80
+    targetPort: 8123
+    protocol: TCP
+    name: http
+  selector:
+    app: home-assistant
