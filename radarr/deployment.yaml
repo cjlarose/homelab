@@ -6,9 +6,6 @@ metadata:
   namespace: media
   labels:
     app: radarr
-  annotations:
-    fluxcd.io/automated: "true"
-    fluxcd.io/tag.radarr: "glob:amd64-v0.2.*"
 spec:
   selector:
     matchLabels:
