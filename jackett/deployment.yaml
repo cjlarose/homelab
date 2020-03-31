@@ -6,9 +6,6 @@ metadata:
   namespace: media
   labels:
     app: jackett
-  annotations:
-    fluxcd.io/automated: "true"
-    fluxcd.io/tag.jackett: "glob:amd64-v*"
 spec:
   selector:
     matchLabels:
