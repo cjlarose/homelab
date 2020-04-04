@@ -6,9 +6,6 @@ metadata:
   namespace: media
   labels:
     app: home-assistant
-  annotations:
-    fluxcd.io/automated: "true"
-    fluxcd.io/tag.sonarr: 'regexp:^0\.\d+\.\d+$'
 spec:
   selector:
     matchLabels:
@@ -20,7 +17,7 @@ spec:
     spec:
       containers:
       - name: home-assistant
-        image: homeassistant/home-assistant:0.108.0.dev20200404
+        image: homeassistant/home-assistant:0.107.7
         imagePullPolicy: IfNotPresent
         ports:
         - name: http
