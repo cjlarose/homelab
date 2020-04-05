@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rtsp-proxy
+  namespace: media
+  labels:
+    app: rtsp-proxy
+spec:
+  selector:
+    matchLabels:
+      app: rtsp-proxy
+  template:
+    metadata:
+      labels:
+        app: rtsp-proxy
+    spec:
+      containers:
+      - name: rtsp-proxy
+        image: cjlarose/victure-pc540-rtsp-proxy
+        imagePullPolicy: Always
+        ports:
+        - name: rtsp
+          containerPort: 554
+          protocol: TCP
+        env:
+        - name: CAMERA_IP
+          valueFrom:
+            configMapKeyRef:
+              name: camera-settings
+              key: ip.address

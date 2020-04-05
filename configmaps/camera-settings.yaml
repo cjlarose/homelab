@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: camera-settings
+  namespace: media
+data:
+  ip.address: "192.168.50.60"
