@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kerberos-io
+  namespace: media
+  labels:
+    app: kerberos-io
+spec:
+  selector:
+    matchLabels:
+      app: kerberos-io
+  template:
+    metadata:
+      labels:
+        app: kerberos-io
+    spec:
+      containers:
+      - name: kerberos-io
+        image: kerberos/kerberos:linux-amd64
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: web
+          containerPort: 80
+          protocol: TCP
+        - name: livestream
+          containerPort: 8889
+          protocol: TCP
+        env:
+        - name: KERBEROSIO_SECURE_SSL
+          value: "true"
