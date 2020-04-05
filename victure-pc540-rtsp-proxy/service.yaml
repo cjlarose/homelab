@@ -10,4 +10,4 @@ spec:
     protocol: TCP
     name: rtsp
   selector:
-    app: rtsp
+    app: rtsp-proxy
