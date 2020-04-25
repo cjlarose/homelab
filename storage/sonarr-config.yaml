@@ -16,7 +16,7 @@ spec:
   forceUpgrade: true
   values:
     nfs:
-      server: 172.16.1.16
+      server: freenas.toothyshouse.com
       path: /mnt/storage/sonarr
       mountOptions:
         - "nfsvers=4"
