@@ -4,4 +4,4 @@ metadata:
   name: camera-settings
   namespace: media
 data:
-  ip.address: "172.16.0.26"
+  ip.address: "172.16.60.16"
