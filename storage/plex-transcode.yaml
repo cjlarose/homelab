@@ -17,7 +17,7 @@ spec:
   values:
     nfs:
       server: freenas.toothyshouse.com
-      path: /mnt/storage/plex/transcode
+      path: /mnt/rocket/plex/transcode
       mountOptions:
         - "nfsvers=4"
     storageClass:

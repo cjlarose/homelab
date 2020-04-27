@@ -17,7 +17,7 @@ spec:
   values:
     nfs:
       server: freenas.toothyshouse.com
-      path: /mnt/storage/plex/config
+      path: /mnt/rocket/plex/config
       mountOptions:
         - "nfsvers=4"
     storageClass:
