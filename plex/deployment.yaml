@@ -21,7 +21,7 @@ spec:
       hostname: plex-k3os
       containers:
       - name: plex
-        image: plexinc/pms-docker:1.19.1.2701-6327e27bf
+        image: plexinc/pms-docker:1.19.2.2737-b69929dab
         imagePullPolicy: IfNotPresent
         ports:
         - name: http
