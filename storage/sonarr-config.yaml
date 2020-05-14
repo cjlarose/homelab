@@ -19,6 +19,6 @@ spec:
       server: freenas.toothyshouse.com
       path: /mnt/storage/sonarr
       mountOptions:
-        - "nfsvers=4"
+        - "nolock"
     storageClass:
       name: "nfs-sonarr-config"
