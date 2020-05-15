@@ -19,6 +19,6 @@ spec:
       server: freenas.toothyshouse.com
       path: /mnt/storage/media/tv-shows
       mountOptions:
-        - "nfsvers=4"
+        - "nfsvers=3"
     storageClass:
       name: "nfs-tv-shows"
