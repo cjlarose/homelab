@@ -19,6 +19,7 @@ spec:
       server: freenas.toothyshouse.com
       path: /mnt/storage/media/movies
       mountOptions:
-        - "nfsvers=4"
+        - "nfsvers=3"
+        - "nolock"
     storageClass:
       name: "nfs-movies"

@@ -19,6 +19,7 @@ spec:
       server: freenas.toothyshouse.com
       path: /mnt/rocket/plex/config
       mountOptions:
-        - "nfsvers=4"
+        - "nfsvers=3"
+        - "nolock"
     storageClass:
       name: "nfs-plex-config"
