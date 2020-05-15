@@ -20,5 +20,6 @@ spec:
       path: /mnt/storage/media/tv-shows
       mountOptions:
         - "nfsvers=3"
+        - "nolock"
     storageClass:
       name: "nfs-tv-shows"
