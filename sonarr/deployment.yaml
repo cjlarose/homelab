@@ -23,7 +23,7 @@ spec:
           - sh
           - -c
           - |-
-            backup_file=$(find /config/Backups/scheduled -type f | tail -n 1)
+            backup_file=$(find /config/Backups -type f -printf "%f\t%p\n" | sort -k1 | tail -n 1 | awk '{print $2}')
             unzip -d /config "$backup_file"
             chown abc:abc /config/config.xml /config/nzbdrone.db /config/nzbdrone.db-journal
             exec /init
