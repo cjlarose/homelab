@@ -19,6 +19,14 @@ spec:
       - name: sonarr
         image: linuxserver/sonarr:amd64-2.0.0.5344-ls58
         imagePullPolicy: IfNotPresent
+        command:
+          - sh
+          - -c
+          - |-
+            backup_file=$(find /config/Backups/scheduled -type f | tail -n 1)
+            unzip -d /config "$backup_file"
+            chown abc:abc /config/config.xml /config/nzbdrone.db /config/nzbdrone.db-journal
+            exec /init
         ports:
         - name: http
           containerPort: 8989
@@ -40,14 +48,29 @@ spec:
               name: users-and-groups
               key: gid.plexlibrary
         volumeMounts:
-        - name: sonarr-config
+        - name: sonarr-transient-config
           mountPath: "/config"
+        - name: sonarr-persistent-config
+          mountPath: "/config/Backups"
+          subPath: "Backups"
+        - name: sonarr-persistent-config
+          mountPath: "/config/MediaCover"
+          subPath: "MediaCover"
+        - name: sonarr-persistent-config
+          mountPath: "/config/logs"
+          subPath: "logs"
+        - name: sonarr-persistent-config
+          mountPath: "/config/xdg"
+          subPath: "xdg"
         - name: transmission-downloads
           mountPath: "/data/completed"
         - name: tv-shows
           mountPath: "/tv"
       volumes:
-      - name: sonarr-config
+      - name: sonarr-transient-config
+        emptyDir:
+          medium: Memory
+      - name: sonarr-persistent-config
         persistentVolumeClaim:
           claimName: pvc-nfs-client-provisioner-sonarr-config
       - name: transmission-downloads
