@@ -19,6 +19,13 @@ spec:
       - name: terraria
         image: cjlarose/terraria-vanilla:1404
         imagePullPolicy: IfNotPresent
+        command:
+          - sh
+          - -c
+          - |-
+            trap : TERM INT
+            sleep infinity &
+            wait
         ports:
         - name: terraria
           containerPort: 7777
