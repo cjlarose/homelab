@@ -19,6 +19,7 @@ spec:
       - name: terraria
         image: cjlarose/terraria-vanilla:1404
         imagePullPolicy: IfNotPresent
+        stdin: true
         ports:
         - name: terraria
           containerPort: 7777
