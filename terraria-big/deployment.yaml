@@ -26,7 +26,7 @@ spec:
           protocol: TCP
         volumeMounts:
         - name: terraria
-          mountPath: /opt/terraria/bigboye.txt
+          mountPath: /opt/terraria/serverconfig.txt
           subPath: config/bigboye.txt
         - name: terraria
           mountPath: /worlds
