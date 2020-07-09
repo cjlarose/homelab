@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: jackett
-        image: linuxserver/jackett:amd64-v0.14.365-ls60
+        image: linuxserver/jackett:v0.16.815-ls8
         imagePullPolicy: IfNotPresent
         ports:
         - name: http
