@@ -1,0 +1,24 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iperf
+  namespace: media
+  labels:
+    app: iperf
+spec:
+  selector:
+    matchLabels:
+      app: iperf
+  template:
+    metadata:
+      labels:
+        app: iperf
+    spec:
+      containers:
+      - name: iperf
+        image: networkstatic/iperf3@sha256:8988aad45ef7871dc73d6dfbdbe92496ab126b31cd1812fc4a977197f62fa3e4
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: iperf
+          containerPort: 5201

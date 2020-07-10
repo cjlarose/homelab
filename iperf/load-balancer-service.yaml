@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: iperf-load-balancer-service
+  namespace: media
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 5201
+    targetPort: 5201
+    name: iperf
+  selector:
+    app: iperf
