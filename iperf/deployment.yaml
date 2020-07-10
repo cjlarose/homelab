@@ -19,6 +19,7 @@ spec:
       - name: iperf
         image: networkstatic/iperf3@sha256:8988aad45ef7871dc73d6dfbdbe92496ab126b31cd1812fc4a977197f62fa3e4
         imagePullPolicy: IfNotPresent
+        args: ["-s"]
         ports:
         - name: iperf
           containerPort: 5201
