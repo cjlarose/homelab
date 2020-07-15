@@ -62,8 +62,8 @@ spec:
         persistentVolumeClaim:
           claimName: pvc-nfs-client-provisioner-plex-config
       - name: plex-transcode
-        emptyDir:
-          medium: Memory
+        persistentVolumeClaim:
+          claimName: pvc-nfs-client-provisioner-plex-transcode
       - name: media
         persistentVolumeClaim:
           claimName: pvc-nfs-client-provisioner-media
