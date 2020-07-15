@@ -63,7 +63,7 @@ spec:
           claimName: pvc-nfs-client-provisioner-plex-config
       - name: plex-transcode
         persistentVolumeClaim:
-          claimName: pvc-nfs-client-provisioner-plex-transcode
+          claimName: pvc-nfs-client-provisioner-plex-transcode-hdd
       - name: media
         persistentVolumeClaim:
           claimName: pvc-nfs-client-provisioner-media

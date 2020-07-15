@@ -2,13 +2,13 @@
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
-  name: nfs-client-provisioner-plex-transcode
+  name: nfs-client-provisioner-plex-transcode-hdd
   namespace: media
   annotations:
     fluxcd.io/automated: "true"
     fluxcd.io/tag.chart-image: semver:~1.0
 spec:
-  releaseName: nfs-client-provisioner-plex-transcode
+  releaseName: nfs-client-provisioner-plex-transcode-hdd
   chart:
     repository: https://kubernetes-charts.storage.googleapis.com/
     name: nfs-client-provisioner
@@ -22,4 +22,4 @@ spec:
         - "nfsvers=3"
         - "nolock"
     storageClass:
-      name: "nfs-plex-transcode"
+      name: "nfs-plex-transcode-hdd"
