@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: tautulli-ingress
+  namespace: media
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  tls:
+  - hosts:
+    - tautulli.toothyshouse.com
+  rules:
+  - host: tautulli.toothyshouse.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: tautulli-service
+          servicePort: 80
