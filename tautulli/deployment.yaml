@@ -42,3 +42,10 @@ spec:
             configMapKeyRef:
               name: users-and-groups
               key: gid.tautulli
+        volumeMounts:
+        - name: tautulli-config
+          mountPath: "/config"
+      volumes:
+      - name: tautulli-config
+        persistentVolumeClaim:
+          claimName: pvc-nfs-client-provisioner-tautulli
