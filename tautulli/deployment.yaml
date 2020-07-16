@@ -32,3 +32,13 @@ spec:
             configMapKeyRef:
               name: system-preferences
               key: time-zone
+        - name: PUID
+          valueFrom:
+            configMapKeyRef:
+              name: users-and-groups
+              key: uid.tautulli
+        - name: PGID
+          valueFrom:
+            configMapKeyRef:
+              name: users-and-groups
+              key: gid.tautulli
