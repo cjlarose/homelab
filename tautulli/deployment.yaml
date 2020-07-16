@@ -8,7 +8,7 @@ metadata:
     app: tautulli
   annotations:
     fluxcd.io/automated: "true"
-    fluxcd.io/tag.sonarr: "semver:~2"
+    fluxcd.io/tag.tautulli: "semver:~2"
 spec:
   selector:
     matchLabels:
