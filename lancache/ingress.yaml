@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: lancache-ingress
+  namespace: media
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - host: lancache.steamcontent.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: lancache-service
+          servicePort: 80
