@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: lancache-dns-load-balancer-service
+  namespace: media
+spec:
+  type: LoadBalancer
+  ports:
+  - name: dns-udp
+    port: 5353
+    targetPort: 53
+    protocol: UDP
+  - name: dns-tcp
+    port: 5353
+    targetPort: 53
+    protocol: TCP
+  selector:
+    app: lancache-dns
