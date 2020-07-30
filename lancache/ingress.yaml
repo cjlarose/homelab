@@ -7,10 +7,12 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-  - host: lancache.steamcontent.com
-    http:
+  - host: "*.steamcontent.com"
+    http: &http_rules
       paths:
       - path: /
         backend:
           serviceName: lancache-service
           servicePort: 80
+  - host: "*.steampowered.com"
+    http: *http_rules
