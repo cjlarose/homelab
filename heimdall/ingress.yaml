@@ -8,9 +8,9 @@ metadata:
 spec:
   tls:
   - hosts:
-    - heimdall.toothyshouse.com
+    - toothyshouse.com
   rules:
-  - host: heimdall.toothyshouse.com
+  - host: toothyshouse.com
     http:
       paths:
       - path: /
