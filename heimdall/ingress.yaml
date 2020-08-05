@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: heimdall-ingress
+  namespace: media
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  tls:
+  - hosts:
+    - heimdall.toothyshouse.com
+  rules:
+  - host: heimdall.toothyshouse.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: heimdall-service
+          servicePort: 80

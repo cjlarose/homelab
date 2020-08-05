@@ -1,0 +1,48 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: heimdall
+  namespace: media
+  labels:
+    app: heimdall
+spec:
+  selector:
+    matchLabels:
+      app: heimdall
+  template:
+    metadata:
+      labels:
+        app: heimdall
+    spec:
+      containers:
+      - name: heimdall
+        image: linuxserver/heimdall:2.2.2-ls94
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http
+          containerPort: 80
+          protocol: TCP
+        env:
+        - name: TZ
+          valueFrom:
+            configMapKeyRef:
+              name: system-preferences
+              key: time-zone
+        - name: PUID
+          valueFrom:
+            configMapKeyRef:
+              name: users-and-groups
+              key: uid.heimdall
+        - name: PGID
+          valueFrom:
+            configMapKeyRef:
+              name: users-and-groups
+              key: gid.heimdall
+        volumeMounts:
+        - name: heimdall-config
+          mountPath: "/config"
+      volumes:
+      - name: heimdall-config
+        persistentVolumeClaim:
+          claimName: pvc-nfs-client-provisioner-heimdall-config
