@@ -20,18 +20,6 @@ https://raw.githubusercontent.com/cjlarose/media-server/master/cloud-init.yaml
 
 The VM will install `k3os` to disk and restart.
 
-I'm using [UEFI "Default Boot Behavior"][uefi-fix] in byhve to boot the VM, so I'll fix the boot partition now.
-
-[uefi-fix]: https://www.ixsystems.com/community/threads/howto-how-to-boot-linux-vms-using-uefi.54039/
-
-```sh
-sudo su -
-mkdir /mnt
-mount /dev/vda1 /mnt
-mkdir /mnt/EFI/BOOT
-cp /mnt/EFI/alpine/grubx64.efi /mnt/EFI/BOOT/bootx64.efi
-```
-
 Stop the VM. Remove the installation media from the VM. Start it back up.
 
 Now, let's ensure we can connect to the VM removely via `kubectl`.
