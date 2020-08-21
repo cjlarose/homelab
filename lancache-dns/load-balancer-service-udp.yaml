@@ -14,3 +14,4 @@ spec:
     protocol: UDP
   selector:
     app: lancache-dns
+  loadBalancerIP: 172.16.20.17

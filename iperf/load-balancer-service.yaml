@@ -13,3 +13,4 @@ spec:
     name: iperf
   selector:
     app: iperf
+  loadBalancerIP: 172.16.20.17

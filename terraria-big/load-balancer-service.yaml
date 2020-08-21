@@ -14,3 +14,4 @@ spec:
     name: http
   selector:
     app: terraria-big
+  loadBalancerIP: 172.16.20.17

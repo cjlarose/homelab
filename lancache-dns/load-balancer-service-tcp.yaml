@@ -14,3 +14,4 @@ spec:
     protocol: TCP
   selector:
     app: lancache-dns
+  loadBalancerIP: 172.16.20.17
