@@ -98,9 +98,9 @@ helm upgrade -i flux fluxcd/flux \
 --namespace flux
 
 helm upgrade -i helm-operator fluxcd/helm-operator \
---set git.ssh.secretName=flux-git-deploy \
 --set helm.versions=v3 \
---namespace flux
+--set clusterRole.create=false \
+--namespace media
 ```
 
 Wait until the containers come up. Then, use `fluxctl` to get the SSH public key for deployments
@@ -139,5 +139,5 @@ kubectl -n flux logs deployment/flux -f
 To monitor helm operator logs
 
 ```sh
-kubectl -n flux logs deployment/helm-operator -f
+kubectl -n media logs deployment/helm-operator -f
 ```
