@@ -33,6 +33,60 @@ sed -i .bak 's/127.0.0.1/'"$K3OS_IP"'/g' ~/.kube/k3os.yaml
 
 Now, execute `kubectl version` to make sure you can connect. All further instructions are to be executed remotely.
 
+Install Calico:
+
+```sh
+kubectl create -f https://docs.projectcalico.org/manifests/tigera-operator.yaml
+cat <<EOF | kubectl create -f -
+# This section includes base Calico installation configuration.
+# For more information, see: https://docs.projectcalico.org/v3.15/reference/installation/api#operator.tigera.io/v1.Installation
+apiVersion: operator.tigera.io/v1
+kind: Installation
+metadata:
+  name: default
+spec:
+  # Configures Calico networking.
+  calicoNetwork:
+    # Note: The ipPools section cannot be modified post-install.
+    ipPools:
+    - blockSize: 26
+      cidr: 10.42.0.0/16
+      encapsulation: VXLANCrossSubnet
+      natOutgoing: Enabled
+      nodeSelector: all()
+EOF
+```
+
+Install MetalLB:
+
+```sh
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/namespace.yaml
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/metallb.yaml
+# On first install only
+kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
+```
+
+Configure MetalLB:
+
+```
+cat <<EOF | kubectl create -f -
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: metallb-system
+  name: config
+data:
+  config: |
+    address-pools:
+    - name: default
+      protocol: layer2
+      addresses:
+      - 172.16.20.17/32
+EOF
+```
+
+Install flux and the helm operator:
+
 ```sh
 kubectl create namespace flux
 
