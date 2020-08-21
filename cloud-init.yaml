@@ -8,6 +8,5 @@ write_files:
       - 1.us.pool.ntp.org
       k3s_args:
       - "server"
-      - "--no-deploy"
-      - "traefik"
+      - "--no-deploy=traefik"
   path: /var/lib/rancher/k3os/config.yaml
