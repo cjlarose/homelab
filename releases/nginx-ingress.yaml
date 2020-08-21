@@ -17,5 +17,8 @@ spec:
     controller:
       service:
         type: "LoadBalancer"
+        loadBalancerIP: 172.16.20.17
+        annotations:
+          metallb.universe.tf/allow-shared-ip: k3os
       extraArgs:
         default-ssl-certificate: media/toothyshouse-com-tls
