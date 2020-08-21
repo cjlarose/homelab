@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: terraria-big-load-balancer-service
   namespace: media
+  annotations:
+    metallb.universe.tf/allow-shared-ip: k3os
 spec:
   type: LoadBalancer
   ports:
