@@ -9,4 +9,5 @@ write_files:
       k3s_args:
       - "server"
       - "--no-deploy=traefik"
+      - "--flannel-backend=none"
   path: /var/lib/rancher/k3os/config.yaml
