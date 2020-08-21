@@ -129,3 +129,15 @@ If you're impatient, trigger changes manually with
 ```sh
 fluxctl --k8s-fwd-ns=flux sync
 ```
+
+To monitor flux logs
+
+```sh
+kubectl -n flux logs deployment/flux -f
+```
+
+To monitor helm operator logs
+
+```sh
+kubectl -n flux logs deployment/helm-operator -f
+```
