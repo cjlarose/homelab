@@ -92,10 +92,11 @@ kubectl create namespace flux
 
 helm repo add fluxcd https://charts.fluxcd.io
 
-helm upgrade -i flux fluxcd/flux \
+helm upgrade -i flux-media fluxcd/flux \
 --set git.url=git@github.com:cjlarose/media-server \
 --set syncGarbageCollection.enabled=true \
---namespace flux
+--set clusterRole.create=false \
+--namespace media
 
 helm upgrade -i helm-operator fluxcd/helm-operator \
 --set helm.versions=v3 \
@@ -127,13 +128,13 @@ Just push to this repository. `flux` will update resources in the cluster automa
 If you're impatient, trigger changes manually with
 
 ```sh
-fluxctl --k8s-fwd-ns=flux sync
+fluxctl --k8s-fwd-ns=media sync
 ```
 
 To monitor flux logs
 
 ```sh
-kubectl -n flux logs deployment/flux -f
+kubectl -n media logs deployment/flux-media -f
 ```
 
 To monitor helm operator logs
