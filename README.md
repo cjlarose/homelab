@@ -88,8 +88,6 @@ EOF
 Install flux and the helm operator:
 
 ```sh
-kubectl create namespace flux
-
 helm repo add fluxcd https://charts.fluxcd.io
 
 helm upgrade -i flux-media fluxcd/flux \
