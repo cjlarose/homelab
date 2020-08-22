@@ -28,6 +28,8 @@ spec:
           containerPort: 32400
           protocol: TCP
         env:
+        - name: ADVERTISE_IP
+          value: 172.16.20.17
         - name: TZ
           valueFrom:
             configMapKeyRef:
