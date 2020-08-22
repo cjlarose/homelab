@@ -29,7 +29,7 @@ spec:
           protocol: TCP
         env:
         - name: ADVERTISE_IP
-          value: 172.16.20.17
+          value: http://172.16.20.17:32400
         - name: TZ
           valueFrom:
             configMapKeyRef:
