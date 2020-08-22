@@ -93,7 +93,7 @@ kubectl create namespace flux
 helm repo add fluxcd https://charts.fluxcd.io
 
 helm upgrade -i flux-media fluxcd/flux \
---set git.url=git@github.com:cjlarose/media-server \
+--set git.url=git@github.com:cjlarose/homelab \
 --set syncGarbageCollection.enabled=true \
 --set clusterRole.create=false \
 --namespace media
