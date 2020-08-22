@@ -105,7 +105,7 @@ helm upgrade -i helm-operator fluxcd/helm-operator \
 Wait until the containers come up. Then, use `fluxctl` to get the SSH public key for deployments
 
 ```sh
-fluxctl identity --k8s-fwd-ns flux
+fluxctl identity --k8s-fwd-ns media
 ```
 
 Add that as a "deploy key" for this repository. Allow write access.
