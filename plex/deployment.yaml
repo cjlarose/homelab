@@ -63,6 +63,8 @@ spec:
           mountPath: "/config"
         - name: plex-transcode
           mountPath: "/transcode"
+        - name: plex-transcode-hdd
+          mountPath: "/transcode-hdd"
         - name: media
           mountPath: "/data"
       volumes:
@@ -72,6 +74,9 @@ spec:
       - name: plex-transcode
         emptyDir:
           medium: Memory
+      - name: plex-transcode-hdd
+        persistentVolumeClaim:
+          claimName: pvc-nfs-client-provisioner-plex-transcode-hdd
       - name: media
         persistentVolumeClaim:
           claimName: pvc-nfs-client-provisioner-media
