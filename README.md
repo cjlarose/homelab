@@ -98,7 +98,7 @@ helm upgrade -i flux-media fluxcd/flux \
 
 helm upgrade -i helm-operator fluxcd/helm-operator \
 --set helm.versions=v3 \
---set clusterRole.create=false \
+--set allowNamespace=media \
 --namespace media
 ```
 
