@@ -41,7 +41,7 @@ spec:
               name: users-and-groups
               key: gid.torrents
         - name: LOCAL_NETWORK
-          value: "172.16.0.0/16"
+          value: "10.42.0.0/16"
         - name: CREATE_TUN_DEVICE
           value: "true"
         - name: OPENVPN_PROVIDER
