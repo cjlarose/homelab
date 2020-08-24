@@ -8,6 +8,9 @@ spec:
   ingress:
   - action: Allow
     protocol: TCP
+    source:
+      nets:
+      - 172.16.10.0/24
     destination:
       ports:
       # kube API server
