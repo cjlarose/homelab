@@ -94,6 +94,7 @@ kubectl create namespace flux
 
 helm upgrade -i flux-homelab fluxcd/flux \
 --set git.url=git@github.com:cjlarose/homelab \
+--set git.path="cert-manager\,configmaps\,namespaces\,releases\,secrets\,workloads" \
 --set syncGarbageCollection.enabled=true \
 --namespace flux
 
