@@ -90,11 +90,12 @@ Install flux and the helm operator:
 ```sh
 helm repo add fluxcd https://charts.fluxcd.io
 
-helm upgrade -i flux-media fluxcd/flux \
+kubectl create namespace flux
+
+helm upgrade -i flux-homelab fluxcd/flux \
 --set git.url=git@github.com:cjlarose/homelab \
 --set syncGarbageCollection.enabled=true \
---set clusterRole.create=false \
---namespace media
+--namespace flux
 
 helm upgrade -i helm-operator fluxcd/helm-operator \
 --set helm.versions=v3 \
@@ -105,7 +106,7 @@ helm upgrade -i helm-operator fluxcd/helm-operator \
 Wait until the containers come up. Then, use `fluxctl` to get the SSH public key for deployments
 
 ```sh
-fluxctl identity --k8s-fwd-ns media
+fluxctl identity --k8s-fwd-ns flux
 ```
 
 Add that as a "deploy key" for this repository. Allow write access.
@@ -132,7 +133,7 @@ fluxctl --k8s-fwd-ns=media sync
 To monitor flux logs
 
 ```sh
-kubectl -n media logs deployment/flux-media -f
+kubectl -n flux logs deployment/flux-homelab -f
 ```
 
 To monitor helm operator logs
