@@ -57,6 +57,12 @@ spec:
 EOF
 ```
 
+Apply Calico network policies
+
+```sh
+find ./calico -name '*.yaml' -exec calicoctl apply -f {} \;
+```
+
 Install MetalLB:
 
 ```sh
