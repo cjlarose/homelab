@@ -135,7 +135,7 @@ Just push to this repository. `flux` will update resources in the cluster automa
 If you're impatient, trigger changes manually with
 
 ```sh
-fluxctl --k8s-fwd-ns=media sync
+fluxctl --k8s-fwd-ns=flux sync
 ```
 
 To monitor flux logs
