@@ -75,7 +75,7 @@ kubectl create secret generic -n metallb-system memberlist --from-literal=secret
 Configure MetalLB:
 
 ```
-cat <<EOF | kubectl create -f -
+cat <<EOF | kubectl apply -f -
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -88,6 +88,7 @@ data:
       protocol: layer2
       addresses:
       - 172.16.20.17/32
+      - 172.16.20.20/32
 EOF
 ```
 
