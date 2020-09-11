@@ -1,0 +1,20 @@
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: ingress-k8s-masters
+spec:
+  selector: has(node-role.kubernetes.io/master)
+  ingress:
+  # Allow all traffic to localhost
+  - action: Allow
+    destination:
+      nets:
+      - 127.0.0.0/8
+  egress:
+  # Allow egress to Internet
+  - action: Allow
+    destination:
+      notNets:
+      - 10.0.0.0/8
+      - 172.16.0.0/12
+      - 192.168.0.0/16
