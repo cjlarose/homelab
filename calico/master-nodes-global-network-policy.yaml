@@ -1,7 +1,7 @@
 apiVersion: projectcalico.org/v3
 kind: GlobalNetworkPolicy
 metadata:
-  name: ingress-k8s-masters
+  name: k8s-masters
 spec:
   selector: has(node-role.kubernetes.io/master)
   ingress:
