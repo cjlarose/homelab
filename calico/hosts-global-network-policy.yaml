@@ -1,9 +1,9 @@
 apiVersion: projectcalico.org/v3
 kind: GlobalNetworkPolicy
 metadata:
-  name: k8s-masters
+  name: k8s-hosts
 spec:
-  selector: has(node-role.kubernetes.io/master)
+  selector: has(kubernetes-host)
   ingress:
   # Allow all traffic to localhost
   - action: Allow

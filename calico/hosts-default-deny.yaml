@@ -3,7 +3,7 @@ kind: GlobalNetworkPolicy
 metadata:
   name: default-deny
 spec:
-  selector: has(node-role.kubernetes.io/master)
+  selector: has(kubernetes-host)
   types:
   - Ingress
   - Egress
