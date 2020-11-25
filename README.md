@@ -109,6 +109,11 @@ helm upgrade -i helm-operator fluxcd/helm-operator \
 --set helm.versions=v3 \
 --set allowNamespace=media \
 --namespace media
+
+helm upgrade -i helm-operator-cert-manager fluxcd/helm-operator \
+--set helm.versions=v3 \
+--set allowNamespace=cert-manager \
+--namespace cert-manager
 ```
 
 Wait until the containers come up. Then, use `fluxctl` to get the SSH public key for deployments
@@ -135,8 +140,14 @@ To monitor flux logs
 kubectl -n flux logs deployment/flux-homelab -f
 ```
 
-To monitor helm operator logs
+To monitor helm operator logs (`media` namespace)
 
 ```sh
 kubectl -n media logs deployment/helm-operator -f
+```
+
+To monitor helm operator logs (`cert-manager` namespace)
+
+```sh
+kubectl -n cert-manager logs deployment/helm-operator-cert-manager -f
 ```
