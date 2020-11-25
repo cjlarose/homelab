@@ -119,15 +119,6 @@ fluxctl identity --k8s-fwd-ns flux
 
 Add that as a "deploy key" for this repository. Allow write access.
 
-Add CRD for [`cert-manager`][cert-manager]
-
-```sh
-CERT_MANAGER_VERSION=v0.14.1
-kubectl apply --validate=false -f "https://github.com/jetstack/cert-manager/releases/download/$CERT_MANAGER_VERSION/cert-manager.crds.yaml"
-```
-
-[cert-manager]: https://github.com/jetstack/cert-manager
-
 ## Deploying changes
 
 Just push to this repository. `flux` will update resources in the cluster automatically.
