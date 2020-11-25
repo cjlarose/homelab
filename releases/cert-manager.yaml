@@ -10,6 +10,8 @@ spec:
     name: cert-manager
     version: 1.1.0
   values:
+    webhook:
+      hostNetwork: true
     extraArgs:
       - --dns01-recursive-nameservers="1.1.1.1:53"
       - --dns01-recursive-nameservers="1.0.0.1:53"
