@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: transmission
-        image: haugene/transmission-openvpn:2.10
+        image: haugene/transmission-openvpn:3.3
         imagePullPolicy: IfNotPresent
         securityContext:
           capabilities:
@@ -71,12 +71,12 @@ spec:
           mountPath: "/data"
       dnsConfig:
         nameservers:
-          - 8.8.4.4
-          - 8.8.8.8
+        - 8.8.4.4
+        - 8.8.8.8
         options:
-          - name: ndots
-            value: "2"
-          - name: edns0
+        - name: ndots
+          value: "2"
+        - name: edns0
       volumes:
       - name: transmission-root
         persistentVolumeClaim:
