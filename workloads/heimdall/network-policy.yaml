@@ -7,6 +7,9 @@ spec:
   podSelector:
     matchLabels:
       app: heimdall
+  policyTypes:
+  - Ingress
+  - Egress
   ingress:
     - from:
       - podSelector:
