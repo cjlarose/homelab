@@ -17,6 +17,13 @@ spec:
             app: nginx-ingress
   egress:
   - to:
+    - namespaceSelector:
+        matchLabels:
+          name: kube-system
+    ports:
+    - protocol: UDP
+      port: 53
+  - to:
     - podSelector:
         matchLabels:
           app: transmission
