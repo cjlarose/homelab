@@ -12,3 +12,8 @@ spec:
       - podSelector:
           matchLabels:
             app: nginx-ingress
+  egress:
+  - to:
+    - podSelector:
+        matchLabels:
+          app: transmission
