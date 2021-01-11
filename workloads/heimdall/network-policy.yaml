@@ -11,4 +11,4 @@ spec:
     - from:
       - podSelector:
           matchLabels:
-            run: access
+            app: nginx-ingress
