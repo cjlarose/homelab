@@ -23,7 +23,3 @@ spec:
     ports:
     - protocol: UDP
       port: 53
-  - to:
-    - podSelector:
-        matchLabels:
-          app: transmission
