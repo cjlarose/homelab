@@ -24,9 +24,14 @@ spec:
       - protocol: UDP
         port: 53
     - to:
-        - podSelector:
-            matchLabels:
-              app: transmission
+      - ipBlock:
+          cidr: "10.42.0.0/16"
+      ports:
+      - protocol: TCP
+        port: 80
+    - to:
+      - ipBlock:
+          cidr: "10.43.0.0/16"
       ports:
       - protocol: TCP
         port: 80
