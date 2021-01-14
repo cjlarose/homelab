@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: terraria-big
-        image: cjlarose/terraria-vanilla:1405
+        image: cjlarose/terraria-vanilla:1412
         imagePullPolicy: IfNotPresent
         stdin: true
         ports:
