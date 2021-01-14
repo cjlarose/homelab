@@ -33,6 +33,12 @@ sed -i .bak 's/127.0.0.1/'"$K3OS_IP"'/g' ~/.kube/k3os.yaml
 
 Now, execute `kubectl version` to make sure you can connect. All further instructions are to be executed remotely.
 
+Label all nodes:
+
+```sh
+kubectl label nodes --all kubernetes-host=
+```
+
 Install Calico:
 
 ```sh
