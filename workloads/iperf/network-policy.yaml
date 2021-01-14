@@ -1,0 +1,15 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: iperf-network-policy
+  namespace: media
+spec:
+  podSelector:
+    matchLabels:
+      app: iperf
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - ipBlock:
+        cidr: '172.16.10.16/32'
