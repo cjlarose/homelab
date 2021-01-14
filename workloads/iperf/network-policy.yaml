@@ -12,4 +12,4 @@ spec:
   ingress:
   - from:
     - ipBlock:
-        cidr: '172.16.10.16/32'
+        cidr: '172.16.10.16/32' # pre-SNAT address
