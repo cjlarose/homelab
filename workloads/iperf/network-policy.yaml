@@ -9,7 +9,12 @@ spec:
       app: iperf
   policyTypes:
   - Ingress
+  - Egress
   ingress:
   - from:
     - ipBlock:
         cidr: '172.16.10.16/32' # pre-SNAT address
+  egress:
+  - to:
+    - ipBlock:
+        cidr: '172.16.10.16/32' # post-DNAT address
