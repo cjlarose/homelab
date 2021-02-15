@@ -10,6 +10,11 @@ spec:
     destination:
       nets:
       - 127.0.0.0/8
+  # Allow traffic from host IP (for container probes with host networking)
+  - action: Allow
+    destination:
+      nets:
+      - 172.16.20.18/32
   egress:
   # Allow egress to Internet
   - action: Allow
@@ -23,6 +28,11 @@ spec:
     destination:
       nets:
       - 127.0.0.0/8
+  # Allow traffic to host IP (for container probes with host networking)
+  - action: Allow
+    destination:
+      nets:
+      - 172.16.20.18/32
   # Allow traffic to NAS
   - action: Allow
     destination:
