@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: transmission
-        image: haugene/transmission-openvpn:3.3
+        image: haugene/transmission-openvpn:3.4
         imagePullPolicy: IfNotPresent
         securityContext:
           capabilities:
