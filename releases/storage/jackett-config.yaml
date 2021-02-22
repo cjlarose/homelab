@@ -16,7 +16,7 @@ spec:
   forceUpgrade: true
   values:
     nfs:
-      server: freenas.toothyshouse.com
+      server: truenas.toothyshouse.com
       path: /mnt/storage/jackett/config
       mountOptions:
         - "nfsvers=3"

@@ -16,7 +16,7 @@ spec:
   forceUpgrade: true
   values:
     nfs:
-      server: freenas.toothyshouse.com
+      server: truenas.toothyshouse.com
       path: /mnt/storage/tautulli
       mountOptions:
         - "nfsvers=3"
