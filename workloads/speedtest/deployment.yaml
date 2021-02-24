@@ -25,6 +25,9 @@ spec:
         - name: http
           containerPort: 80
           protocol: TCP
+        env:
+        - name: CRONJOB_ITERATION
+          value: "10"
         volumeMounts:
         - name: speedtest-data
           mountPath: "/var/www/html/data"
