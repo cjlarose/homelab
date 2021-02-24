@@ -1,0 +1,34 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: speedtest
+  namespace: media
+  labels:
+    app: speedtest
+  annotations:
+    fluxcd.io/automated: "true"
+spec:
+  selector:
+    matchLabels:
+      app: speedtest
+  template:
+    metadata:
+      labels:
+        app: speedtest
+    spec:
+      containers:
+      - name: speedtest
+        image: roest/docker-speedtest-analyser
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http
+          containerPort: 80
+          protocol: TCP
+        volumeMounts:
+        - name: speedtest-data
+          mountPath: "/var/www/html/data"
+      volumes:
+      - name: speedtest-data
+        persistentVolumeClaim:
+          claimName: pvc-nfs-client-provisioner-speedtest
