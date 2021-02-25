@@ -27,7 +27,7 @@ spec:
           protocol: TCP
         env:
         - name: CRONJOB_ITERATION
-          value: "10"
+          value: "60"
         volumeMounts:
         - name: speedtest-data
           mountPath: "/var/www/html/data"
