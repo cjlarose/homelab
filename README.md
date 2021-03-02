@@ -105,6 +105,12 @@ kubectl apply --validate=false \
 -f https://github.com/jetstack/cert-manager/releases/download/v1.1.0/cert-manager.crds.yaml
 ```
 
+Install sealed-secrets CRDs:
+
+```sh
+kubectl apply -f https://raw.githubusercontent.com/bitnami-labs/sealed-secrets/v0.15.0/helm/sealed-secrets/crds/sealedsecret-crd.yaml
+```
+
 Install flux and the helm operator:
 
 ```sh
