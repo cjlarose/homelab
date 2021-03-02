@@ -17,3 +17,15 @@ spec:
         podSelector:
           matchLabels:
             app: nginx-ingress
+      - namespaceSelector:
+          matchLabels:
+            name: media
+        podSelector:
+          matchLabels:
+            app: radarr
+      - namespaceSelector:
+          matchLabels:
+            name: media
+        podSelector:
+          matchLabels:
+            app: sonarr
