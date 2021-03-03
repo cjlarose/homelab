@@ -6,9 +6,6 @@ metadata:
   namespace: media
   labels:
     app: transmission
-  annotations:
-    fluxcd.io/automated: "true"
-    fluxcd.io/tag.transmission: semver:~3
 spec:
   selector:
     matchLabels:
@@ -20,7 +17,7 @@ spec:
     spec:
       containers:
       - name: transmission
-        image: haugene/transmission-openvpn:3.4
+        image: haugene/transmission-openvpn:3.3
         imagePullPolicy: IfNotPresent
         securityContext:
           capabilities:
