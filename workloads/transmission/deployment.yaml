@@ -30,13 +30,13 @@ spec:
           httpGet:
             path: /transmission/web
             port: 9091
-          initialDelaySeconds: 10
+          initialDelaySeconds: 120
           periodSeconds: 5
         livenessProbe:
           httpGet:
             path: /transmission/web
             port: 9091
-          initialDelaySeconds: 10
+          initialDelaySeconds: 120
           periodSeconds: 5
         env:
         - name: PUID
