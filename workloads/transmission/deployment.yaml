@@ -26,18 +26,6 @@ spec:
         - name: http
           containerPort: 9091
           protocol: TCP
-        readinessProbe:
-          httpGet:
-            path: /transmission/web
-            port: 9091
-          initialDelaySeconds: 120
-          periodSeconds: 5
-        livenessProbe:
-          httpGet:
-            path: /transmission/web
-            port: 9091
-          initialDelaySeconds: 120
-          periodSeconds: 5
         env:
         - name: PUID
           valueFrom:
@@ -50,7 +38,7 @@ spec:
               name: users-and-groups
               key: gid.torrents
         - name: LOCAL_NETWORK
-          value: "10.42.0.0/16,172.16.20.18/32"
+          value: "10.42.0.0/16"
         - name: CREATE_TUN_DEVICE
           value: "true"
         - name: OPENVPN_PROVIDER
