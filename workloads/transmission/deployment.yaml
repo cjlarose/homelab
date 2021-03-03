@@ -26,6 +26,18 @@ spec:
         - name: http
           containerPort: 9091
           protocol: TCP
+        readinessProbe:
+          httpGet:
+            path: /
+            port: http
+          initialDelaySeconds: 30
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /
+            port: http
+          initialDelaySeconds: 30
+          periodSeconds: 5
         env:
         - name: PUID
           valueFrom:
