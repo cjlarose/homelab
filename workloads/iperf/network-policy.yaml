@@ -13,8 +13,8 @@ spec:
   ingress:
   - from:
     - ipBlock:
-        cidr: '172.16.10.16/32' # pre-SNAT address
+        cidr: '172.16.10.0/24' # pre-SNAT address
   egress:
   - to:
     - ipBlock:
-        cidr: '172.16.10.16/32' # post-DNAT address
+        cidr: '172.16.10.0/24' # post-DNAT address
