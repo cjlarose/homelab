@@ -153,6 +153,14 @@ If you're impatient, trigger changes manually with
 fluxctl --k8s-fwd-ns=flux sync
 ```
 
+Update the default service account in the `media` namespace to use a specific `imagePullSecrets`:
+
+```sh
+kubectl -n media patch serviceaccount default -p '{"imagePullSecrets": [{"name": "docker-hub"}]}'
+```
+
+## Logs
+
 To monitor flux logs
 
 ```sh
