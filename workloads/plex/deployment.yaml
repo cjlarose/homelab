@@ -8,7 +8,7 @@ metadata:
     app: plex
   annotations:
     fluxcd.io/automated: "true"
-    fluxcd.io/tag.sonarr: "semver:~1"
+    fluxcd.io/tag.plex: "semver:~1"
 spec:
   selector:
     matchLabels:
