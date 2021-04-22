@@ -60,6 +60,12 @@ spec:
             port: 32400
           initialDelaySeconds: 30
           periodSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /web/index.html
+            port: 32400
+          initialDelaySeconds: 30
+          periodSeconds: 5
         volumeMounts:
         - name: plex-config
           mountPath: "/config"
