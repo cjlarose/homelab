@@ -3,7 +3,7 @@ write_files:
     ssh_authorized_keys:
     - github:cjlarose
     boot_cmd:
-    - mkdir -p /mnt/plex-transcode && mount -t tmpfs -o size=512m tmpfs /mnt/plex-transcode
+    - mkdir -p /mnt/plex-transcode && mount -t tmpfs -o size=8192m tmpfs /mnt/plex-transcode
     k3os:
       ntp_servers:
       - 0.us.pool.ntp.org
