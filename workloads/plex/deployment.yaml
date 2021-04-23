@@ -19,8 +19,6 @@ spec:
         app: plex
     spec:
       hostname: plex-k3os
-      imagePullSecrets:
-      - name: docker-hub
       containers:
       - name: plex
         image: plexinc/pms-docker:public
