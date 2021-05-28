@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bumpin-time
+  namespace: media
+  labels:
+    app: bumpin-time
+spec:
+  selector:
+    matchLabels:
+      app: bumpin-time
+  template:
+    metadata:
+      labels:
+        app: bumpin-time
+    spec:
+      containers:
+      - name: bumpin-time
+        image: quay.io/cjlarose/bumpin-time@sha256:c24dfc94c63971f4a4300213d5405bda48ce08404d34334e647e735fae1871d8
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http
+          containerPort: 3000
+          protocol: TCP
+        env:
+        - name: WOL_MAC
+          value: d0:50:99:2f:e4:d4
+        - name: WOL_ADDRESS
+          value: 172.16.10.28
