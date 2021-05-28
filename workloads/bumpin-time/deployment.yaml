@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: bumpin-time
-        image: quay.io/cjlarose/bumpin-time@sha256:c24dfc94c63971f4a4300213d5405bda48ce08404d34334e647e735fae1871d8
+        image: quay.io/cjlarose/bumpin-time:1.0.0
         imagePullPolicy: IfNotPresent
         ports:
         - name: http
