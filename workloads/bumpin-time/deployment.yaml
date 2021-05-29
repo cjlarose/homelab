@@ -17,13 +17,18 @@ spec:
     spec:
       containers:
       - name: bumpin-time
-        image: quay.io/cjlarose/bumpin-time:1.0.0
+        image: quay.io/cjlarose/bumpin-time:password
         imagePullPolicy: IfNotPresent
         ports:
         - name: http
           containerPort: 3000
           protocol: TCP
         env:
+        - name: PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: bumpin-time-credentials
+              key: password
         - name: WOL_MAC
           value: d0:50:99:2f:e4:d4
         - name: WOL_ADDRESS
