@@ -4,9 +4,6 @@ kind: HelmRelease
 metadata:
   name: nfs-client-provisioner-speedtest
   namespace: media
-  annotations:
-    fluxcd.io/automated: "true"
-    fluxcd.io/tag.chart-image: semver:~1.0
 spec:
   releaseName: nfs-client-provisioner-speedtest
   chart:

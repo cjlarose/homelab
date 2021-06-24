@@ -4,9 +4,6 @@ kind: HelmRelease
 metadata:
   name: nginx-ingress
   namespace: media
-  annotations:
-    fluxcd.io/automated: "true"
-    fluxcd.io/tag.chart-image: semver:~1
 spec:
   releaseName: nginx-ingress-media
   chart:
