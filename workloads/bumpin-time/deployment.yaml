@@ -29,6 +29,11 @@ spec:
             secretKeyRef:
               name: bumpin-time-credentials
               key: password
+        - name: COOKIE_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: bumpin-time-credentials
+              key: cookie-secret
         - name: WOL_MAC
           value: d0:50:99:2f:e4:d4
         - name: WOL_ADDRESS
