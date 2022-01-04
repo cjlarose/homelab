@@ -40,18 +40,6 @@ spec:
             secretKeyRef:
               name: pihole-credentials
               key: webpassword
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 80
-          initialDelaySeconds: 30
-          periodSeconds: 5
-        readinessProbe:
-          httpGet:
-            path: /
-            port: 80
-          initialDelaySeconds: 30
-          periodSeconds: 5
         volumeMounts:
         - name: pihole-config
           mountPath: "/etc/pihole"
