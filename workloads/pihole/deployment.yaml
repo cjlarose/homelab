@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: pihole
-        image: pihole/pihole:2022.01
+        image: docker.io/pihole/pihole:2022.01
         imagePullPolicy: IfNotPresent
         ports:
         - name: dns-tcp
