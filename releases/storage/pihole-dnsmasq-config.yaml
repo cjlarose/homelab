@@ -1,0 +1,22 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: nfs-client-provisioner-pihole-dnsmasq-config
+  namespace: media
+spec:
+  releaseName: nfs-client-provisioner-pihole-dnsmasq-config
+  chart:
+    repository: https://charts.helm.sh/stable
+    name: nfs-client-provisioner
+    version: 1.2.8
+  forceUpgrade: true
+  values:
+    nfs:
+      server: truenas.toothyshouse.com
+      path: /mnt/rocket/pihole/dnsmasq-config
+      mountOptions:
+        - "nfsvers=3"
+        - "nolock"
+    storageClass:
+      name: "nfs-pihole-dnsmasq-config"
