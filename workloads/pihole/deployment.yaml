@@ -40,6 +40,8 @@ spec:
             secretKeyRef:
               name: pihole-credentials
               key: webpassword
+        - name: VIRTUAL_HOST
+          value: pihole.toothyshouse.com
         livenessProbe:
           httpGet:
             path: /
