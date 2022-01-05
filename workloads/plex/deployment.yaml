@@ -56,13 +56,13 @@ spec:
           httpGet:
             path: /web/index.html
             port: 32400
-          initialDelaySeconds: 30
+          initialDelaySeconds: 300
           periodSeconds: 5
         readinessProbe:
           httpGet:
             path: /web/index.html
             port: 32400
-          initialDelaySeconds: 30
+          initialDelaySeconds: 300
           periodSeconds: 5
         volumeMounts:
         - name: plex-config
