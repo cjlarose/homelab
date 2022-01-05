@@ -52,18 +52,6 @@ spec:
               key: claim
         - name: CHANGE_CONFIG_DIR_OWNERSHIP
           value: "false"
-        livenessProbe:
-          httpGet:
-            path: /web/index.html
-            port: 32400
-          initialDelaySeconds: 300
-          periodSeconds: 5
-        readinessProbe:
-          httpGet:
-            path: /web/index.html
-            port: 32400
-          initialDelaySeconds: 300
-          periodSeconds: 5
         volumeMounts:
         - name: plex-config
           mountPath: "/config"
