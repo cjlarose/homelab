@@ -123,6 +123,7 @@ helm upgrade -i flux-homelab fluxcd/flux \
 --set git.url=git@github.com:cjlarose/homelab \
 --set git.path="cert-manager\,configmaps\,namespaces\,releases\,secrets\,workloads" \
 --set syncGarbageCollection.enabled=true \
+--set registry.excludeImage='*' \
 --version 1.8.0 \
 --namespace flux
 
