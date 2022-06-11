@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: discord-bot-ingress
+  namespace: media
+  annotations:
+    kubernetes.io/ingress.class: "public-nginx"
+spec:
+  tls:
+  - hosts:
+    - discordbot.toothyshouse.com
+  rules:
+  - host: discordbot.toothyshouse.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: discordbot-service
+          servicePort: 42069

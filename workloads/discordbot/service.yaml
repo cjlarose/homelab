@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: discordbot-service
+  namespace: media
+spec:
+  ports:
+  - protocol: TCP
+    port: 42069
+    targetPort: 42069
+  type: ExternalName
+  externalName: monica-discord-laptop.toothyshouse.com
