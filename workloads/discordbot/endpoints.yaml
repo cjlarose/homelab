@@ -1,7 +1,7 @@
 kind: Endpoints
 apiVersion: v1
 metadata:
-  name: discordbot-endpoints
+  name: discordbot-service
   namespace: media
 subsets:
   - addresses:
