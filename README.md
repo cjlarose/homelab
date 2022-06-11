@@ -123,6 +123,7 @@ helm upgrade -i flux-homelab fluxcd/flux \
 --set git.url=git@github.com:cjlarose/homelab \
 --set git.path="cert-manager\,configmaps\,namespaces\,releases\,secrets\,workloads" \
 --set syncGarbageCollection.enabled=true \
+--version 1.8.0 \
 --namespace flux
 
 helm upgrade -i helm-operator fluxcd/helm-operator \
