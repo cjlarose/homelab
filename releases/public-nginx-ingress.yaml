@@ -2,7 +2,7 @@
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
-  name: nginx-ingress
+  name: public-nginx-ingress
   namespace: media
 spec:
   releaseName: public-nginx-ingress-media
@@ -14,7 +14,7 @@ spec:
     controller:
       service:
         type: "LoadBalancer"
-        loadBalancerIP: 172.16.20.29
+        loadBalancerIP: 172.16.20.23
         annotations:
           metallb.universe.tf/allow-shared-ip: k3os
       extraArgs:

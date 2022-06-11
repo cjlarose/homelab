@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: bumpin-time-ingress
+  namespace: media
+  annotations:
+    kubernetes.io/ingress.class: "public-nginx"
+spec:
+  tls:
+  - hosts:
+    - bumpin-time.toothyshouse.com
+  rules:
+  - host: bumpin-time.toothyshouse.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: bumpin-time-service
+          servicePort: 3000
