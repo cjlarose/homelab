@@ -8,5 +8,4 @@ spec:
   - protocol: TCP
     port: 42069
     targetPort: 42069
-  type: ExternalName
-  externalName: monica-discord-laptop.toothyshouse.com
+  type: ClusterIP

@@ -1,0 +1,10 @@
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: discordbot-endpoints
+  namespace: media
+subsets:
+- addresses:
+  - ip: 172.16.10.36
+  ports:
+  - 42069
