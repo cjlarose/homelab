@@ -35,6 +35,6 @@ spec:
               name: bumpin-time-credentials
               key: cookie-secret
         - name: WOL_MAC
-          value: d0:50:99:2f:e4:d4
+          value: A8:A1:59:BD:8A:CC
         - name: WOL_ADDRESS
           value: 172.16.10.28
