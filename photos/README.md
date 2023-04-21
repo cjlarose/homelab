@@ -16,3 +16,11 @@ kubectl apply -f photos/cert-manager/digital-ocean-credentials.yaml
 kubectl apply -f photos/cert-manager/letsencrypt-prod-issuer.yaml
 kubectl apply -f photos/cert-manager/toothyshouse-com-certificate.yaml
 ```
+
+## ingress-nginx
+
+```sh
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.7.0/deploy/static/provider/baremetal/deploy.yaml
+kubectl -n ingress-nginx delete service ingress-nginx-controller
+kubectl -n ingress-nginx patch deployment ingress-nginx-controller --patch-file photos/ingress-nginx/host-network.yaml
+```
