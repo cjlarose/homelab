@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: toothyshouse-com-certificate
+spec:
+  secretName: toothyshouse-com-tls
+  issuerRef:
+    name: letsencrypt-staging
+  dnsNames:
+  - '*.toothyshouse.com'
+  - toothyshouse.com
