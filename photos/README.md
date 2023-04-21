@@ -24,3 +24,9 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/cont
 kubectl -n ingress-nginx delete service ingress-nginx-controller
 kubectl -n ingress-nginx patch deployment ingress-nginx-controller --patch-file photos/ingress-nginx/host-network.yaml
 ```
+
+## PhotoPrism
+
+```sh
+kubectl apply -f photos/photoprism/ingress.yaml
+```
