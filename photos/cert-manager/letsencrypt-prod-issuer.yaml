@@ -1,0 +1,19 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: cjlarose@gmail.com
+
+    privateKeySecretRef:
+      name: acme-client-private-key-letsencrypt-prod
+
+    solvers:
+    - selector: {}
+      dns01:
+        digitalocean:
+          tokenSecretRef:
+            name: digital-ocean-credentials
+            key: personal-access-token

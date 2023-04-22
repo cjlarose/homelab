@@ -5,7 +5,7 @@ metadata:
 spec:
   secretName: toothyshouse-com-tls
   issuerRef:
-    name: letsencrypt-staging
+    name: letsencrypt-prod
   dnsNames:
   - '*.toothyshouse.com'
   - toothyshouse.com
