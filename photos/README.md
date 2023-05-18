@@ -34,4 +34,5 @@ kubectl apply -f photos/mariadb/service.yaml
 kubectl apply -f photos/photoprism/ingress.yaml
 kubectl apply -f photos/photoprism/secret.yaml
 kubectl apply -f photos/photoprism/stateful-set.yaml
+kubectl apply -f photos/photoprism/service.yaml
 ```
