@@ -31,4 +31,5 @@ kubectl -n ingress-nginx patch deployment ingress-nginx-controller --patch-file 
 kubectl apply -f photos/photoprism/ingress.yaml
 kubectl apply -f photos/mariadb/secret.yaml
 kubectl apply -f photos/mariadb/deployment.yaml
+kubectl apply -f photos/mariadb/service.yaml
 ```
