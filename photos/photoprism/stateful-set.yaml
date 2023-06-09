@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: photoprism
-        image: docker.io/photoprism/photoprism:230514
+        image: docker.io/photoprism/photoprism:230607
         env:
         - name: PHOTOPRISM_DEBUG
           value: "true"
