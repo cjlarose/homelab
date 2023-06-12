@@ -19,14 +19,6 @@ spec:
         env:
         - name: PHOTOPRISM_DEBUG
           value: "true"
-        - name: PHOTOPRISM_CACHE_PATH
-          value: /assets/cache
-        - name: PHOTOPRISM_IMPORT_PATH
-          value: /assets/photos/import
-        - name: PHOTOPRISM_EXPORT_PATH
-          value: /assets/photos/export
-        - name: PHOTOPRISM_ORIGINALS_PATH
-          value: /assets/photos/originals
         - name: PHOTOPRISM_DATABASE_DRIVER
           value: mysql
         - name: PHOTOPRISM_HTTP_HOST
@@ -42,7 +34,7 @@ spec:
         - containerPort: 2342
           name: http
         volumeMounts:
-        - mountPath: /assets
+        - mountPath: /photoprism
           name: photoprism
         readinessProbe:
           httpGet:
