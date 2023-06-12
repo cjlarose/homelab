@@ -1,0 +1,41 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: restic-backup-photoprism
+spec:
+  schedule: "0 * * * *"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: restic-backup
+            image: docker.io/restic/restic:0.15.2
+            env:
+            - name: RESTIC_REPOSITORY
+              value: "s3:s3.us-west-004.backblazeb2.com/toothy-photos"
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: backblaze-application-key-secret
+                  key: B2_KEY_ID
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: backblaze-application-key-secret
+                  key: B2_APPLICATION_KEY
+            envFrom:
+            - secretRef:
+                name: restic-secret
+                optional: false
+            volumeMounts:
+            - mountPath: /photoprism
+              name: photoprism
+            command: ["restic", "--verbose", "backup", "/photoprism"]
+          restartPolicy: OnFailure
+          volumes:
+          - name: photoprism
+            hostPath:
+              path: /photoprism
+              type: Directory
