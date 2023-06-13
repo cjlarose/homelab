@@ -36,7 +36,7 @@ spec:
               name: photoprism
             - mountPath: /restic-cache
               name: restic-cache
-            command: ["restic", "--hostname", "restic-backup-photoprism", "--verbose", "backup", "/photoprism"]
+            command: ["restic", "--hostname", "restic-backup-photoprism", "--verbose=2", "backup", "/photoprism"]
           restartPolicy: OnFailure
           volumes:
           - name: photoprism
