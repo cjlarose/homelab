@@ -9,6 +9,22 @@ spec:
     spec:
       template:
         spec:
+          initContainers:
+          - name: photoprism-backup
+            image: docker.io/photoprism/photoprism:230607
+            env:
+            - name: PHOTOPRISM_DEBUG
+              value: "true"
+            - name: PHOTOPRISM_DATABASE_DRIVER
+              value: mysql
+            envFrom:
+            - secretRef:
+                name: photoprism-secret
+                optional: false
+            volumeMounts:
+            - mountPath: /photoprism
+              name: photoprism
+            command: ["photoprism", "backup", "--index", "--force"]
           containers:
           - name: restic-backup
             image: docker.io/restic/restic:0.15.2
