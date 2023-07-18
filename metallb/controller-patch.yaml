@@ -1,0 +1,6 @@
+spec:
+  template:
+    spec:
+      containers:
+      - name: controller
+        image: quay.io/metallb/controller:v0.9.3

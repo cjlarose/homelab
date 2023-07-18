@@ -1,0 +1,6 @@
+spec:
+  template:
+    spec:
+      containers:
+      - name: speaker
+        image: quay.io/metallb/speaker:v0.9.3
