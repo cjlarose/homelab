@@ -1,0 +1,65 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: restic-backup-photoprism
+spec:
+  schedule: "0 * * * *"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          initContainers:
+          - name: photoprism-backup
+            image: docker.io/photoprism/photoprism:230607
+            env:
+            - name: PHOTOPRISM_DEBUG
+              value: "true"
+            - name: PHOTOPRISM_DATABASE_DRIVER
+              value: mysql
+            envFrom:
+            - secretRef:
+                name: photoprism-secret
+                optional: false
+            volumeMounts:
+            - mountPath: /photoprism
+              name: photoprism
+            command: ["photoprism", "backup", "--index", "--force"]
+          containers:
+          - name: restic-backup
+            image: docker.io/restic/restic:0.15.2
+            env:
+            - name: RESTIC_REPOSITORY
+              value: "s3:s3.us-west-004.backblazeb2.com/toothy-photos"
+            - name: RESTIC_CACHE_DIR
+              value: /restic-cache
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: backblaze-application-key-secret
+                  key: B2_KEY_ID
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: backblaze-application-key-secret
+                  key: B2_APPLICATION_KEY
+            envFrom:
+            - secretRef:
+                name: restic-secret
+                optional: false
+            volumeMounts:
+            - mountPath: /photoprism
+              name: photoprism
+            - mountPath: /restic-cache
+              name: restic-cache
+            command: ["restic", "--hostname", "restic-backup-photoprism", "--verbose=2", "backup", "/photoprism"]
+          restartPolicy: OnFailure
+          volumes:
+          - name: photoprism
+            hostPath:
+              path: /photoprism
+              type: Directory
+          - name: restic-cache
+            hostPath:
+              path: /restic-cache
+              type: DirectoryOrCreate
