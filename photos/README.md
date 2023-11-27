@@ -36,3 +36,18 @@ kubectl apply -f photos/photoprism/secret.yaml
 kubectl apply -f photos/photoprism/stateful-set.yaml
 kubectl apply -f photos/photoprism/service.yaml
 ```
+
+## restic
+
+```sh
+kubectl apply -f photos/restic/backblaze-application-key-secret.yaml
+kubectl apply -f photos/restic/restic-secret.yaml
+kubectl apply -f photos/restic/backup-cronjob.yaml
+```
+
+To get restic logs
+
+```sh
+kubectl get jobs.batch
+kubectl logs job/restic-backup-photoprism-28350720
+```
