@@ -12,6 +12,7 @@ kubectl apply -f https://github.com/bitnami-labs/sealed-secrets/releases/downloa
 
 ```sh
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.11.0/cert-manager.yaml
+kubectl -n cert-manager patch deployment cert-manager --patch-file photos/cert-manager/deployment-patch.yaml
 kubectl apply -f photos/cert-manager/digital-ocean-credentials.yaml
 kubectl apply -f photos/cert-manager/letsencrypt-prod-issuer.yaml
 kubectl apply -f photos/cert-manager/toothyshouse-com-certificate.yaml
